@@ -12,7 +12,7 @@
         <h3>Bienvenido!</h3>
     </div>
     <div>
-        <section>
+        <section id="secLogin">
             <div class="login-page" id="login-page">
                 <div id="login" class="login">
                     <form action="home.html" autocomplete="on">
@@ -25,7 +25,7 @@
 
                             <label for="password" data-icon="p">Tu contrase&ntilde;a</label>
                             <input id="password" name="password" required="required" type="password" placeholder="ej. pass12k9" />
-                            <button type="submit">Entrar</button>
+                            <button id="btnLogin" type="submit">Entrar</button>
                         </div>
                     </form>
                 </div>
@@ -33,6 +33,17 @@
             <div>
                 <button id="btnIngresar" type="submit">Ingresar</button>
             </div>
+        </section>
+
+        <section id="secInventario">
+            <div class="parent" data-name="parent">
+                Inventario pendiente
+                <div class="child" data-name="child 1">Pistones</div>
+                <div class="child" data-name="child 2">Engranes</div>
+                <div class="child" data-name="child 3">Collarines</div>
+            </div>
+            <button id="enviarInventario">Enviar</button>
+
         </section>
 
     </div>

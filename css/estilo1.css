@@ -94,3 +94,14 @@ span.psw {
         width: 100%;
     }
 }
+
+div { margin: 2px; font:bold 9pt 'Segoe UI';}
+.parent {
+  border:solid 2px black;
+  color:black;
+}
+.child {
+  border:solid 2px gray;
+  height:40px;
+  color:gray;
+}

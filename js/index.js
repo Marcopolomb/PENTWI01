@@ -1,21 +1,51 @@
-$('div').on('click',function(ev) {
-    console.log(ev.currentTarget.dataset.name);
-  ev.stopPropagation();
-});
-
-$('#triggerIt').on('click', function(ev) {
-  $('div[data-name="child 3"]').trigger('click'); //programmatically cause a click to happen just as if the user had actually clicked it
-});
-
-$('#turnEmOff').on('click', function(ev) {
-  $('div').off(); //remove ALL event handlers
-  //$('div').off('click'); //just remove click handlers
-});
-
 $(window).load(function () {
     $('#login-page').slideUp(500);
+    $('#secInventario').hide();
 });
 
 $('#btnIngresar').click(function () {
     $('#login-page').slideToggle(500);
 });
+
+$('#btnLogin').click(function (ev) {
+    var user = $('#username').val();
+    var pwd = $('#password').val();  
+    if (user != '' )
+    {
+        if (!user.includes("@")) {
+            alert('Usuario no valido');
+            ev.preventDefault();
+        }
+        else
+        {
+            $('#secLogin').hide();
+            $('#secInventario').show();
+            ev.preventDefault();
+        }
+    }
+});
+
+$('.parent div').on('click', function (ev) {
+
+    if ($(ev.currentTarget).css("background-color")== 'rgb(255, 0, 0)') {
+        $(ev.currentTarget).css("background-color", "white");
+        $(ev.currentTarget).css("color", "gray");
+    }
+    else {
+        $(ev.currentTarget).css("background-color", "red");
+        $(ev.currentTarget).css("color", "white");
+    }
+
+});
+
+$('#enviarInventario').on('click', function (ev) {
+
+    var seleccionados = $("div[style|='background-color: red; color: white;'").css("background-color", "green");
+    var mensaje = 'Se solicitaron exitosamente los siguentes productos: ';
+    var productos = '';
+    seleccionados.each(function () {
+        productos+= '\n'+$(this).text();
+    });
+    alert(mensaje + productos);
+}
+);
